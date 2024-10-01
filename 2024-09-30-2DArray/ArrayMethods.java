@@ -16,70 +16,88 @@ public class ArrayMethods{
   }
 
   public static String arrToString(int[][]ary){
-    String arr="[";
+    String builder="[";
     for (int i = 0; i<ary.length; i++){
-      arr+=arrToString(ary[i]);
-    }
-    return "";
+		builder = builder + arrToString(ary[i]);
+		if (i< ary.length -1){
+			builder = builder + ", ";
+		}
+	}
+  
+	
+	builder = builder + "]";
+	return builder;
   }
-
-  public static int[] returnCopy(int[]ary){
-    int[] arr=new int[ary.length];
-    for(int i=0; i<ary.length; i++){
-      arr[i]=ary[i];
+  
+  public static int arr2DSum(int[][] nums) {
+    int totalSum = 0;
+    
+    for (int i = 0; i < nums.length; i++) {
+        for (int j = 0; j < nums[i].length; j++) {
+            totalSum = totalSum + nums[i][j];
+        }
     }
-    return arr;
-  }
-
-  public static boolean arraychecker(int[]a, int[]b){
-    if(a.length!=b.length){
-      return false;
-    }
-    for(int i=0; i<a.length; i++){
-      if (a[i]!=b[i]){
-        return false;
-      }
-    }
-    return true;
-  }
-
-  public static int[] concatArray(int[]ary1,int[]ary2){
-    int[] ary=new int[ary1.length+ary2.length];
-    for(int i=0; i<ary1.length; i++){
-      ary[i]=ary1[i];
-    }
-    for(int i=0; i<ary2.length; i++){
-      ary[ary1.length+i]=ary2[i];
-    }
-    return ary;
-  }
-
-  public static void main(String[] args){
-    //test cases
-    int[] test1 = new int[]{};
-    int[] test2 = new int[]{0, 4, 23,19, 23};
-    int[] test3 = new int[]{1};
-    int[] test4= new int[]{1, 12};
-    int[] test5= new int[]{2, 3, 4, 9};
-    int[][] test6= new int[][]{{2, 3, 4}, {5, 6, 7}, {2, 4, 9}};
-
-    System.out.println("Original: [], Actual: "+ arrToString(test1));
-    System.out.println("Original: [0, 4, 23, 19, 23], Actual: "+ arrToString(test2));
-    System.out.println("Original: [1], Actual: "+ arrToString(test3));
-    System.out.println("Original: [1,12], Actual: "+ arrToString(test4));
-
-    System.out.println("Does it match: "+ arraychecker(test1, returnCopy(test1)));
-    System.out.println("Does it match: "+ arraychecker(test2,returnCopy(test2)));
-    System.out.println("Does it match: "+ arraychecker(test3,returnCopy(test3)));
-    System.out.println("Does it match: "+ arraychecker(test4,returnCopy(test4)));
-
-    System.out.println("Original: [] and [0, 4, 23, 19, 23], Concat: "+ arrayToString(concatArray(test1, test2)));
-    System.out.println("Original: [0, 4, 23, 19, 23] and [1], Concat: "+ arrayToString(concatArray(test2, test3)));
-    System.out.println("Original: [1] and [1,12], Concat: "+ arrayToString(concatArray(test3, test4)));
-    System.out.println("[2, 3, 4, 9] vs" + arrToString(test5));
-    System.out.println("[[2, 3, 4], [5, 6, 7], [2, 4, 9]]" + arraytest6);
-
-
-
-  }
+    
+    return totalSum;
 }
+
+   public static int[][] swapRC(int[][] nums) {
+    int rowCount = nums.length;
+    int colCount = nums[0].length;
+    int[][] swapped = new int[colCount][rowCount];
+    
+    for (int i = 0; i < rowCount; i++) {
+        for (int j = 0; j < colCount; j++) {
+            swapped[j][i] = nums[i][j];
+        }
+    }
+    
+    return swapped;
+}
+
+
+public static void replaceNegative(int[][] vals) {
+    for (int i = 0; i < vals.length; i++) {
+        for (int j = 0; j < vals[i].length; j++) {
+            if (vals[i][j] < 0) {
+                
+                if (i == j) {
+                    vals[i][j] = 1;
+                } else {
+                    vals[i][j] = 0;
+                }
+            }
+        }
+    }
+}
+
+
+
+public static void main(String[] args){
+	int[] test = {1,2,3,0};
+	int[][] test2 = {{1,2,3,0},{9,9}, {5,6,7,9}};
+	int[][] test3 = {{1,2,5,2},{92,9}, {5,6,7,9}};
+	int[][] test4 = {{1,2,3,},{4,5,6}};
+	
+	System.out.println(arrToString(test));
+	System.out.println(arrToString(test2));
+	System.out.println(arrToString(test2));
+	System.out.println(arr2DSum(test3));
+	System.out.println(swapRC(test4));
+	
+	
+	
+}
+}
+
+
+	
+
+
+   
+
+  
+   
+
+	
+  
