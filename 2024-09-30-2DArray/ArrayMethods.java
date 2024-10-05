@@ -69,7 +69,47 @@ public static void replaceNegative(int[][] vals) {
             }
         }
     }
+	
+	
+	
 }
+public static int[][] copy(int[][] nums) {
+       
+        int rows = nums.length;
+
+        
+        int[][] copy = new int[rows][];
+
+        
+        for (int i = 0; i < rows; i++) {
+           
+            int cols = nums[i].length;
+            copy[i] = new int[cols];
+
+            
+            copyRow(nums[i], copy[i]);
+        }
+
+        return copy;
+    }
+
+ 
+    public static void copyRow(int[] originalRow, int[] newRow) {
+        for (int i = 0; i < originalRow.length; i++) {
+            newRow[i] = originalRow[i];
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -78,16 +118,27 @@ public static void main(String[] args){
 	int[][] test2 = {{1,2,3,0},{9,9}, {5,6,7,9}};
 	int[][] test3 = {{1,2,5,2},{92,9}, {5,6,7,9}};
 	int[][] test4 = {{1,2,3,},{4,5,6}};
+	int[][] test5 = {{1,-2,3,},{4,5,6}};
 	
 	System.out.println(arrToString(test));
 	System.out.println(arrToString(test2));
 	System.out.println(arrToString(test2));
 	System.out.println(arr2DSum(test3));
-	System.out.println(swapRC(test4));
+	System.out.println(arrToString(swapRC(test4)));
+	System.out.println(arrToString(copy(test4)));
+	replaceNegative(test5);
+	System.out.println(arrToString(test5));
+	
 	
 	
 	
 }
+
+
+
+
+
+
 }
 
 
