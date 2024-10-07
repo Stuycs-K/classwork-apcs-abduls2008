@@ -42,8 +42,16 @@ public class ArrayDemo{
   /*Return the sum of all of the values in the 2D array
    *Use a nested loop instead of a helper method*/
   public static int arr2DSum(int[][]nums){
-    return 0;
-  }
+    int totalSum = 0;
+
+    for (int i = 0; i < nums.length; i++) {
+        for (int j = 0; j < nums[i].length; j++) {
+            totalSum = totalSum + nums[i][j];
+        }
+    }
+
+    return totalSum;
+}
 
   //3. Modify a given 2D array of integer as follows:
   //Replace all the negative values:
@@ -95,8 +103,19 @@ public class ArrayDemo{
   //   You may assume the array is rectangular and neither rows nor cols is 0.
   //   e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
   public static int[][] swapRC(int[][]nums){
-    return new int[1][1];
-  }
+    int rowCount = nums.length;
+    int colCount = nums[0].length;
+    int[][] swapped = new int[colCount][rowCount];
+
+    for (int i = 0; i < rowCount; i++) {
+        for (int j = 0; j < colCount; j++) {
+            swapped[j][i] = nums[i][j];
+        }
+    }
+
+    return swapped;
+}
+
 
   //6. Make an HTML table by putting a table tag around the entire 2d array,
   //   tr tags around each row, and td tags around each value.
