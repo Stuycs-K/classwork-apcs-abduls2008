@@ -2,6 +2,8 @@ import java.util.Arrays;
 public class ArrayDemo{
   public static void main(String[]args){
     int[][] test1 = {{1, 2, 0}, {4,0,6}};
+	int[][] test2 = {{1,2},{3}};
+	System.out.println((htmlTable(test2)));
     System.out.println(countZeros2D(test1));
     //write your tests here!
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
@@ -145,6 +147,21 @@ public class ArrayDemo{
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
-    return "";
-  }
+	String table = "<table>"; 
+    
+    
+    for (int i = 0; i < nums.length; i++) {
+        table += "<tr>";
+        
+        
+        for (int j = 0; j < nums[i].length; j++) {
+            table += "<td>" + nums[i][j] + "</td>"; 
+        }
+        
+        table += "</tr>"; 
+    }
+    
+    table += "</table>";
+    return table;
+}
 }
