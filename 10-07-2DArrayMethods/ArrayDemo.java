@@ -14,12 +14,12 @@ public class ArrayDemo{
   //0. Include your prior methods to help you print a 1D/2D array of ints.
   public static String arrToString(int[]ary){
     String arr="[";
-    if(nums.length==0){
+    if(ary.length==0){
       return "[]";
     }
-    arr+=nums[0];
-    for(int i=1; i<nums.length; i++){
-    arr+=", "+nums[i];
+    arr+=ary[0];
+    for(int i=1; i<ary.length; i++){
+    arr+=", "+ary[i];
     }
     arr+="]";
     return arr;
@@ -35,6 +35,9 @@ public class ArrayDemo{
 			builder = builder + ", ";
 		}
 	}
+	builder = builder + "]";
+	return builder;
+  }
 
   //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums){
@@ -44,9 +47,11 @@ public class ArrayDemo{
         if(nums[i][j]==0){
           count++;
         }
+	  }
+	}
         return count;
-    }
-  }
+    
+  
 }
 
   //2. Calculate the sum of a 2d array
@@ -108,6 +113,11 @@ public class ArrayDemo{
 
     return copy;
 }
+	public static void copyRow(int[] originalRow, int[] newRow) {
+        for (int i = 0; i < originalRow.length; i++) {
+            newRow[i] = originalRow[i];
+        }
+    }
 
 
   //5. Rotate an array by returning a new array with the rows and columns swapped.
