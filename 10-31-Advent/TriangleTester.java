@@ -31,11 +31,46 @@ public class TriangleTester {
         }
         return validCount;
     }
+	
+	public static int countTrianglesB(String filename) {
+        int validCount = 0;
+        try {
+            Scanner fileScanner = new Scanner(new File(filename));
+            while (fileScanner.hasNextLine()) {
+                int[][] side = new int[3][3];
+				for (int i=0; i<3; i++){
+					if (fileScanner.hasNextLine()){
+						Scanner lineScanner = new Scanner(fileScanner.nextLine());
+						side[i][0] = lineScanner.nextInt();
+						side[i][1] = lineScanner.nextInt();
+						side[i][2] = lineScanner.nextInt();
+						 lineScanner.close();
+					}
+                }
+				for (int colm = 0; colm <3; colm++){
+					int a = side[0][colm], b = side[1][colm], c = side[2][colm];
+                    if (isValidTriangle(a, b, c)) {
+                        validCount++;
+				
+                
+            }
+				
+			}
+		}
+            fileScanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + filename);
+        }
+        return validCount;
+    }
+	
+
 
 
  public static void main(String[] args) {
        
-        System.out.println("Valid triangles:" + countTrianglesA("inputTri.txt"));
+        System.out.println("Valid triangles(part a):" + countTrianglesA("inputTri.txt"));
+		System.out.println("Valid triangles(part b):" + countTrianglesB("inputTri.txt"));
        
     }
 }
