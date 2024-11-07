@@ -7,6 +7,10 @@ public class Bird extends Animal {
   public Bird(String noise, int age, String name, double height, String color){
     //In order to construct the Bird you must first call the superclass constructor
     //This is done by saying: super(parameters)
+    super("hi", 10, "aaaa");
+    this.height=height;
+    this.color=color;
+
     //e.g. super("Doug",10,"Squaaaak!");
 
   }
@@ -22,7 +26,24 @@ public class Bird extends Animal {
     I am ? inches tall
   */
   //You can call the old method using super.speak();
-  //public void speak(){}
+  public void speak(){
+    super.speak();
+    System.out.println("I am" + getHeight() + "inches tall");
+    System.out.println("My feathers are colored " + getColor());
+
+  }
+
+  public String getColor(){
+    return color;
+
+  }
+  public double getHeight(){
+    return height;
+
+  }
+}
+
+
 
 
 
