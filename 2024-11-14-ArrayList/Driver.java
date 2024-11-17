@@ -11,7 +11,22 @@ public class Driver{
 		A.add("strawberry");
 	 ArrayList<String> reversedList = ArrayListPractice.makeReversedList(A);
 	 System.out.println(reversedList);
+	 
+	 ArrayList<String> alist = new ArrayList<>();
+        alist.add("A1");
+        alist.add("A2");
+        alist.add("A3");
+        alist.add("A4");
+        alist.add("A5");
+
+        ArrayList<String> blist = new ArrayList<>();
+        blist.add("B1");
+        blist.add("B2");
+
+        ArrayList<String> mixedList = ArrayListPractice.mixLists(alist, blist);
+        System.out.println(mixedList);
+    }
 
   }
 
-}
+

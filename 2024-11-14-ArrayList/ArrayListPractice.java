@@ -33,4 +33,28 @@ public static ArrayList<String> makeReversedList( ArrayList<String> original){
     
     return reverse;
 }
+
+
+public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String> b){
+  //return a new ArrayList that has all values of a and b in alternating order that is:
+  //a[0], b[0], a[1], b[1]...
+  //If one list is longer than the other, just attach the remaining values to the end.
+  ArrayList<String> mixedList = new ArrayList<>();
+  int i = 0;
+  while (i < a.size() && i < b.size()) {
+        mixedList.add(a.get(i)); // Add from list 'a'
+        mixedList.add(b.get(i)); // Add from list 'b'
+        i++;
+    }
+	while (i < a.size()) {
+        mixedList.add(a.get(i));
+        i++;
+    }
+	while (i < b.size()) {
+        mixedList.add(b.get(i));
+        i++;
+	}
+	return mixedList;
 }
+}
+
