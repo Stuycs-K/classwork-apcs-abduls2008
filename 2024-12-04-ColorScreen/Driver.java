@@ -12,6 +12,11 @@ public class Driver {
         
         int[] randomNumbers = generateRandomNumbers();
         displayRandomNumbers(randomNumbers);
+		drawSeparator();
+
+        drawstuff();
+        Text.go(31, 1);
+        System.out.println(Text.RESET);
 
         
 	}
@@ -68,6 +73,23 @@ public class Driver {
             System.out.print(numbers[i]);
         }
     }
+	 public static void drawSeparator() {
+        for (int col = 1; col <= 80; col++) {
+            Text.go(3, col);
+            Text.color(Text.BRIGHT, Text.background(Text.GREEN));
+            System.out.print("=");
+        }
+    }
+
+    
+    public static void drawstuff() {
+        Text.go(15, 35); 
+        Text.color(Text.CYAN, Text.background(Text.YELLOW), Text.BRIGHT);
+        System.out.print(":)");
+    }
+	
 }
+
+
 
  
