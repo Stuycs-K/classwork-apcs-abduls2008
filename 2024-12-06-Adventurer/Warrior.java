@@ -41,6 +41,20 @@ public Warrior(String name, int hp) {
         other.applyDamage(damage);
         return this.getName() + " slashes " + other.getName() + " for " + damage + " damage!";
     }
+	
+    @Override
+    public String support(Adventurer other) {
+        int heal = 5; 
+        other.setHP(Math.min(other.getHP() + heal, other.getmaxHP()));
+        return this.getName() + other.getName() + " healed for  " + heal + " HP!";
+    }
+
+    @Override
+    public String support() {
+        int heal = 5; 
+        this.setHP(Math.min(this.getHP() + heal, this.getmaxHP()));
+       
+    }
 
 
     @Override
